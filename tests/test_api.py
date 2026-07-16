@@ -5,6 +5,11 @@ def test_api_health(base_url):
     assert response.status_code == 200
     assert response.json() == {"status": "healthy"}
 
+def test_api_openapi_spec_is_served(base_url):
+    response = requests.get(f"{base_url}/api/openapi.yaml")
+    assert response.status_code == 200
+    assert "openapi" in response.text[:200]
+
 # User
 
 def test_api_register_user(base_url, credentials):
