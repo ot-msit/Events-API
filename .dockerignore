@@ -8,3 +8,4 @@ instance/
 **/*.db
 tests/
 README.md
+.github/
